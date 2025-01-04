@@ -1,5 +1,5 @@
 resource "aws_elb" "elb" {
-  name               = "terraform_project_elb"
+  name               = "terraform-project-elb"
   availability_zones = ["us-west-1a", "us-west-1c"]
 
   listener {
@@ -25,7 +25,7 @@ resource "aws_elb" "elb" {
   }
 }
 
- /*resource "aws_rds_cluster" "default" {
+/*resource "aws_rds_cluster" "default" {
   cluster_identifier      = "aurora-cluster-demo"
   engine                  = "aurora-mysql"
   engine_version          = "5.7.mysql_aurora.2.11.2"
