@@ -17,7 +17,7 @@ resource "aws_elb" "elb" {
     interval            = 30
   }
 
-  instances                 = ["${aws_instance.one.id}", "${aws_instance.two.id}"]
+  instances                 = ["${aws_instance.web-server[0].id}", "${aws_instance.web-server[1].id}"]
   cross_zone_load_balancing = true
   idle_timeout              = 400
   tags = {
