@@ -1,6 +1,6 @@
-resource "aws_elb" "bar" {
-  name               = "raham-terraform-elb"
-  availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]
+resource "aws_elb" "elb" {
+  name               = "terraform_project_elb"
+  availability_zones = ["us-west-1a", "us-west-1c"]
 
   listener {
     instance_port     = 80
@@ -21,7 +21,7 @@ resource "aws_elb" "bar" {
   cross_zone_load_balancing = true
   idle_timeout              = 400
   tags = {
-    Name = "raham-tf-elb"
+    Name = "tf-elb"
   }
 }
 
