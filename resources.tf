@@ -91,7 +91,7 @@ resource "aws_iam_user" "iam" {
 
 // Ebs volume
 resource "aws_ebs_volume" "ebs" {
-  availability_zone = "us-west-1a"
+  availability_zone = "us-west-1c"
   size              = var.ebs_size
   tags = {
     Name = "ebs-001"
