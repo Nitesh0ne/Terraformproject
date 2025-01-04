@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'window'
+    }
     environment {
         AWS_ACCESS_KEY_ID = credentials("access_key")
         AWS_SECRET_ACCESS_KEY = credentials("secret_key")
@@ -9,27 +11,27 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git 'https://github.com/Nitesh0ne/Terraformproject.git'
+                git branch: 'main', url: 'https://github.com/Nitesh0ne/Terraformproject.git'
             }
         }
         stage('init'){
             steps{
-              sh   'terraform init'
+               bat  'terraform init'
             }
         }
         stage('validate'){
             steps {
-                sh 'terraform validate'
+               bat 'terraform validate'
             }
         }
         stage('plan'){
             steps{
-                sh 'terraform plan'
+              bat  'terraform plan'
             }
         }
         stage('action'){
             steps{
-                sh 'terraform $action -var-file="var.tfvars" --auto-approve'
+               bat  'terraform $action -var-file="var.tfvars" --auto-approve'
             }
         }
        
