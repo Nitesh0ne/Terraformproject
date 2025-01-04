@@ -32,7 +32,7 @@ pipeline {
         }
         stage('action'){
             steps{
-               bat  'terraform $action -var-file="var.tfvars" --auto-approve'
+               bat  'terraform %action% -var-file="var.tfvars" --auto-approve'
             }
         }
        
